@@ -1,0 +1,11 @@
+{
+    "name": "hexlet/code",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Ruslan",
+            "email": "velibegov@mail.ru"
+        }
+    ],
+    "require": {}
+}
