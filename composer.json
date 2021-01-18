@@ -1,16 +1,26 @@
 {
-    "name": "hexlet/code",
-    "type": "project",
-    "authors": [
-        {
-            "name": "Ruslan",
-            "email": "velibegov@mail.ru"
-        }
-    ],
-	"description": "hexlet php-package",
-    "license": "MIT",
-	"bin": [
-  "bin/brain-games"
-    ],
-    "require": {}
+  "name": "hexlet/code",
+  "type": "project",
+  "authors": [
+    {
+      "name": "Ruslan",
+      "email": "velibegov@mail.ru"
+    }
+  ],
+  "description": "hexlet php-package",
+  "license": "MIT",
+  "bin": [
+    "bin/brain-games"
+  ],
+  "autoload": {
+    "psr-4": {
+      "Php\\Project\\Lvl1\\": "src"
+    },
+    "files": [
+      "src/Cli.php"
+    ]
+  },
+  "require": {
+    "wp-cli/php-cli-tools": "0.11.11"
+  }
 }
