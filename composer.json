@@ -7,5 +7,10 @@
             "email": "velibegov@mail.ru"
         }
     ],
+	"description": "hexlet php-package",
+    "license": "MIT",
+	"bin": [
+  "bin/brain-games"
+    ],
     "require": {}
 }
