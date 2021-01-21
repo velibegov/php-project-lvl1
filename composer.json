@@ -9,8 +9,13 @@
   ],
   "description": "hexlet php-package",
   "license": "MIT",
-  "bin": [
-    "bin/brain-games"
+    "bin": [
+    "bin/brain-games",
+    "bin/brain-even",
+	"bin/brain-calc",
+	"bin/brain-gcd",
+	"bin/brain-progression",
+	"bin/brain-prime"
   ],
   "scripts": {
 	"phpcs": "./vendor/bin/phpcs",
@@ -20,9 +25,6 @@
     ],
     "post-install-cmd": [
       "@code-sniffer"
-    ],
-    "post-update-cmd": [
-      "@code-sniffer"
     ]
   },
   "autoload": {
@@ -30,7 +32,9 @@
       "Php\\Project\\Lvl1\\": "src"
     },
     "files": [
-      "src/Cli.php"
+      "src/App.php",
+	  "src/Cli.php",
+	  "src/Engine.php"
     ]
   },
   "require": {
