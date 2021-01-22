@@ -44,7 +44,7 @@ abstract class Game implements Playable
     {
         if ($this->answer != $this->correct_answer) {
             $this->warn($this->answer, $this->correct_answer);
-            $this->rounds = 3;
+            //$this->rounds = 3;
         } else {
             $this->encourage();
             $this->rounds--;
