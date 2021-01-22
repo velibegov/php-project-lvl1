@@ -7,7 +7,7 @@ namespace Php\Project\Lvl1\Games;
 use Php\Project\Lvl1\Cli;
 use Php\Project\Lvl1\User;
 
-abstract class Game implements Playable
+class Game implements Playable
 {
     protected User $user;
     protected int $rounds = 3;
@@ -31,7 +31,9 @@ abstract class Game implements Playable
     public function warn($wrong, $correct)
     {
         $message = $wrong . ' is wrong answer ;(. Correct answer was ' . $correct . '.';
+        $parting_msg = "Let's try again, " . $this->user->getName() . '!';
         Cli::writeMsg($message);
+        Cli::writeMsg($parting_msg);
     }
 
     public function win()
@@ -44,10 +46,15 @@ abstract class Game implements Playable
     {
         if ($this->answer != $this->correct_answer) {
             $this->warn($this->answer, $this->correct_answer);
-            //$this->rounds = 3;
+            exit;
         } else {
             $this->encourage();
             $this->rounds--;
         }
+    }
+
+    public function taskPrint()
+    {
+        // TODO: Implement taskPrint() method.
     }
 }

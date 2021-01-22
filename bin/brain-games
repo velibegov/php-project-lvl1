@@ -15,11 +15,4 @@ if (file_exists($autoloadPath1)) {
     require_once $autoloadPath2;
 }
 
-$user = greet();
-/*$game = chooseGame($user);
-if ($game instanceof Playable) {
-    $game->taskPrint();
-    $game->play();
-} else {
-    exit();
-}*/
+run();
