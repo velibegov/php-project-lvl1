@@ -11,8 +11,10 @@ function runSpecific($game)
 
 function run()
 {
-    $user = greet();
+    greet();
+    /*
     $game = chooseGame($user);
     $game->taskPrint();
     $game->play();
+    */
 }
