@@ -1,14 +1,11 @@
 <?php
 
-
 namespace Php\Project\Lvl1\Games;
-
 
 use Php\Project\Lvl1\Cli;
 
 class Calculator extends Game implements Playable
 {
-
     public function taskPrint()
     {
         Cli::writeMsg('What is the result of the expression?');

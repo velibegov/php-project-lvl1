@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Php\Project\Lvl1\Games;
-
 
 use Php\Project\Lvl1\Cli;
 
@@ -16,11 +14,13 @@ class GreatestCommonDivisor extends Game implements Playable
 
     public function gcd($a, $b)
     {
-        while ($a != $b)
-            if ($a > $b)
+        while ($a != $b) {
+            if ($a > $b) {
                 $a -= $b;
-            else
+            } else {
                 $b -= $a;
+            }
+        }
         return $a;
     }
 

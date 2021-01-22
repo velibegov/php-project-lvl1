@@ -1,14 +1,11 @@
 <?php
 
-
 namespace Php\Project\Lvl1\Games;
-
 
 use Php\Project\Lvl1\Cli;
 
 class Progression extends Game implements Playable
 {
-
     public function taskPrint()
     {
         Cli::writeMsg('What number is missing in the progression?');

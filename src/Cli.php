@@ -19,5 +19,3 @@ class Cli
         return prompt($message);
     }
 }
-
-

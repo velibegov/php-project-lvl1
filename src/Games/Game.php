@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Php\Project\Lvl1\Games;
-
 
 use Php\Project\Lvl1\Cli;
 use Php\Project\Lvl1\User;

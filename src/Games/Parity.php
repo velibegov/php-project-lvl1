@@ -1,14 +1,11 @@
 <?php
 
-
 namespace Php\Project\Lvl1\Games;
-
 
 use Php\Project\Lvl1\Cli;
 
 class Parity extends Game implements Playable
 {
-
     public function taskPrint()
     {
         Cli::writeMsg('Answer "yes" if the number is even, otherwise answer "no".');

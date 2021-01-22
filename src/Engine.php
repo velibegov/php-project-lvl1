@@ -27,15 +27,15 @@ function chooseGame(User $user)
     $name_of_game = Cli::getAnswer('Please, print the number of the game');
 
     switch ($name_of_game) {
-        case 1 :
+        case 1:
             return new Parity($user);
-        case 2 :
+        case 2:
             return new Calculator($user);
-        case 3 :
+        case 3:
             return new GreatestCommonDivisor($user);
-        case 4 :
+        case 4:
             return new Progression($user);
-        case 5 :
+        case 5:
             return new Prime($user);
     }
     return Cli::writeMsg("You entered an invalid number");
