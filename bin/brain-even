@@ -3,9 +3,6 @@
 <?php
 
 
-use Php\Project\Lvl1\Games\Parity;
-use function Php\Project\Lvl1\greet;
-
 $autoloadPath1 = __DIR__ . '/../../../autoload.php';
 $autoloadPath2 = __DIR__ . '/../vendor/autoload.php';
 if (file_exists($autoloadPath1)) {
@@ -14,7 +11,4 @@ if (file_exists($autoloadPath1)) {
     require_once $autoloadPath2;
 }
 
-$user = greet();
-$game = new Parity($user);
-$game->taskPrint();
-$game->play();
+runParity();

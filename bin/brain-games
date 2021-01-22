@@ -16,10 +16,10 @@ if (file_exists($autoloadPath1)) {
 }
 
 $user = greet();
-$game = chooseGame($user);
+/*$game = chooseGame($user);
 if ($game instanceof Playable) {
     $game->taskPrint();
     $game->play();
 } else {
     exit();
-}
+}*/

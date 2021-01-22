@@ -12,7 +12,7 @@ function greet(): User
 {
     Cli::writeMsg('Welcome to the Brain Games!');
     $name = Cli::getAnswer('May I have your name?');
-    Cli::writeMsg("Hello, $name");
+    Cli::writeMsg("Hello, $name!");
     return new User($name);
 }
 
