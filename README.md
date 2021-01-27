@@ -4,3 +4,4 @@
 ![CI](https://github.com/velibegov/php-project-lvl1/workflows/CI/badge.svg)
 
 https://asciinema.org/a/qhzQzF0tacXRAPguhRKZ5YVAX - Чётное ли число.
+https://asciinema.org/a/lseAaomySJloj4z0A2wlFCqSc - Калькулятор.
