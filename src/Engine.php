@@ -13,12 +13,12 @@ function greet(): string
     return $name;
 }
 
-function encourage()
+function encourage(): void
 {
     writeMsg('Correct!');
 }
 
-function warn(string $wrong, string $correct, string $name)
+function warn(string $wrong, string $correct, string $name): void
 {
     $message = $wrong . ' is wrong answer ;(. Correct answer was ' . $correct . '.';
     $parting_msg = "Let's try again, " . $name . '!';
@@ -26,7 +26,7 @@ function warn(string $wrong, string $correct, string $name)
     writeMsg($parting_msg);
 }
 
-function win(string $name)
+function win(string $name): void
 {
     writeMsg("Congratulations, $name!");
     exit(0);

@@ -5,7 +5,7 @@ namespace Php\Project\Lvl1\Games;
 use function Php\Project\Lvl1\getAnswer;
 use function Php\Project\Lvl1\writeMsg;
 
-function playParity()
+function playParity(): void
 {
     $rounds = 3;
     $name = greet();

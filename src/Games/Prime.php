@@ -24,7 +24,7 @@ function isPrime(int $number): bool
     return true;
 }
 
-function playPrime()
+function playPrime(): void
 {
     $rounds = 3;
     $name = greet();

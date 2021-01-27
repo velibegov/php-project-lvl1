@@ -18,7 +18,7 @@ function gcd(int $a, int $b): int
     return $a;
 }
 
-function playGCD()
+function playGCD(): void
 {
     $rounds = 3;
     $name = greet();
@@ -31,7 +31,7 @@ function playGCD()
         $correct_answer = gcd($first_number, $second_number);
 
         $answer = getAnswer("Question: $first_number $second_number");
-        $rounds += play($correct_answer, $answer, $name);
+        $rounds += play((string)$correct_answer, $answer, $name);
     }
     win($name);
 }

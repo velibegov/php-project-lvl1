@@ -5,7 +5,7 @@ namespace Php\Project\Lvl1\Games;
 use function Php\Project\Lvl1\getAnswer;
 use function Php\Project\Lvl1\writeMsg;
 
-function playProgression()
+function playProgression(): void
 {
     $rounds = 3;
     $name = greet();
@@ -33,11 +33,11 @@ function playProgression()
                 $string_to_show .= '..' . ' ';
             }
         }
-        trim($string_to_show);
+        $string_to_show = trim($string_to_show);
 
         $answer = getAnswer("Question: $string_to_show");
 
-        $rounds += play($correct_answer, $answer, $name);
+        $rounds += play((string)$correct_answer, $answer, $name);
     }
     win($name);
 }
