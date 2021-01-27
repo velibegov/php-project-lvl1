@@ -5,17 +5,13 @@ namespace Php\Project\Lvl1;
 use function cli\line;
 use function cli\prompt;
 
-class Cli
+function writeMsg(string $message): string
 {
+    line($message);
+    return $message;
+}
 
-    public static function writeMsg($message)
-    {
-        line($message);
-        return $message;
-    }
-
-    public static function getAnswer($message)
-    {
-        return prompt($message);
-    }
+function getAnswer(string $message): string
+{
+    return prompt($message);
 }

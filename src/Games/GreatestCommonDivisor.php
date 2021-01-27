@@ -1,40 +1,37 @@
 <?php
 
-namespace Php\Project\Lvl1\Games;
+use function Php\Project\Lvl1\Games\greet;
+use function Php\Project\Lvl1\Games\play;
+use function Php\Project\Lvl1\Games\win;
+use function Php\Project\Lvl1\getAnswer;
+use function Php\Project\Lvl1\writeMsg;
 
-use Php\Project\Lvl1\Cli;
-
-class GreatestCommonDivisor extends Game implements Playable
+function gcd(int $a, int $b): int
 {
-
-    public function taskPrint()
-    {
-        Cli::writeMsg('Find the greatest common divisor of given numbers.');
-    }
-
-    public function gcd($a, $b)
-    {
-        while ($a != $b) {
-            if ($a > $b) {
-                $a -= $b;
-            } else {
-                $b -= $a;
-            }
+    while ($a != $b) {
+        if ($a > $b) {
+            $a -= $b;
+        } else {
+            $b -= $a;
         }
-        return $a;
     }
+    return $a;
+}
 
-    public function play()
-    {
-        while ($this->rounds > 0) {
-            $first_number = rand(1, 100);
-            $second_number = rand(1, 100);
+function playGCD()
+{
+    $rounds = 3;
+    $name = greet();
+    writeMsg('Find the greatest common divisor of given numbers.');
 
-            $this->correct_answer = $this->gcd($first_number, $second_number);
+    while ($rounds > 0) {
+        $first_number = rand(1, 100);
+        $second_number = rand(1, 100);
 
-            $this->answer = Cli::getAnswer("Question: $first_number $second_number");
-            parent::play();
-        }
-        $this->win();
+        $correct_answer = gcd($first_number, $second_number);
+
+        $answer = getAnswer("Question: $first_number $second_number");
+        $rounds += play($correct_answer, $answer, $name);
     }
+    win($name);
 }

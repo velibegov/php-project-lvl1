@@ -32,9 +32,13 @@
       "Php\\Project\\Lvl1\\": "src"
     },
     "files": [
-      "src/App.php",
 	  "src/Cli.php",
-	  "src/Engine.php"
+	  "src/Engine.php",
+	  "src/Games/Parity.php",
+	  "src/Games/Calculator.php",
+	  "src/Games/GreatestCommonDivisor.php",
+	  "src/Games/Prime.php",
+	  "src/Games/Progression.php"
     ]
   },
   "require": {

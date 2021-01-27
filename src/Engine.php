@@ -1,42 +1,44 @@
 <?php
 
-namespace Php\Project\Lvl1;
+namespace Php\Project\Lvl1\Games;
 
-use Php\Project\Lvl1\Games\Calculator;
-use Php\Project\Lvl1\Games\GreatestCommonDivisor;
-use Php\Project\Lvl1\Games\Parity;
-use Php\Project\Lvl1\Games\Prime;
-use Php\Project\Lvl1\Games\Progression;
+use function Php\Project\Lvl1\getAnswer;
+use function Php\Project\Lvl1\writeMsg;
 
-function greet(): User
+function greet(): string
 {
-    Cli::writeMsg('Welcome to the Brain Games!');
-    $name = Cli::getAnswer('May I have your name?');
-    Cli::writeMsg("Hello, $name!");
-    return new User($name);
+    writeMsg('Welcome to the Brain Games!');
+    $name = getAnswer('May I have your name?');
+    writeMsg("Hello, $name!");
+    return $name;
 }
 
-function chooseGame(User $user)
+function encourage()
 {
-    Cli::writeMsg('1 - Parity check');
-    Cli::writeMsg('2 - Calculator');
-    Cli::writeMsg('3 - Greatest Common Divisor');
-    Cli::writeMsg('4 - Progression');
-    Cli::writeMsg('5 - Is the number prime');
+    writeMsg('Correct!');
+}
 
-    $name_of_game = Cli::getAnswer('Please, print the number of the game');
+function warn(string $wrong, string $correct, string $name)
+{
+    $message = $wrong . ' is wrong answer ;(. Correct answer was ' . $correct . '.';
+    $parting_msg = "Let's try again, " . $name . '!';
+    writeMsg($message);
+    writeMsg($parting_msg);
+}
 
-    switch ($name_of_game) {
-        case 1:
-            return new Parity($user);
-        case 2:
-            return new Calculator($user);
-        case 3:
-            return new GreatestCommonDivisor($user);
-        case 4:
-            return new Progression($user);
-        case 5:
-            return new Prime($user);
+function win(string $name)
+{
+    writeMsg("Congratulations, $name!");
+    exit(0);
+}
+
+function play(string $correct_answer, string $answer, string $name): int
+{
+    if ($answer != $correct_answer) {
+        warn($answer, $correct_answer, $name);
+        exit(0);
+    } else {
+        encourage();
+        return -1;
     }
-    return Cli::writeMsg("You entered an invalid number");
 }

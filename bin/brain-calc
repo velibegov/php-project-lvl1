@@ -2,8 +2,7 @@
 
 <?php
 
-use Php\Project\Lvl1\Games\Calculator;
-use function Php\Project\Lvl1\greet;
+use function Php\Project\Lvl1\Games\playCalc;
 
 $autoloadPath1 = __DIR__ . '/../../../autoload.php';
 $autoloadPath2 = __DIR__ . '/../vendor/autoload.php';
@@ -13,4 +12,4 @@ if (file_exists($autoloadPath1)) {
     require_once $autoloadPath2;
 }
 
-runSpecific(new Calculator(greet()));
+playCalc();

@@ -2,23 +2,20 @@
 
 namespace Php\Project\Lvl1\Games;
 
-use Php\Project\Lvl1\Cli;
+use function Php\Project\Lvl1\getAnswer;
+use function Php\Project\Lvl1\writeMsg;
 
-class Parity extends Game implements Playable
+function playParity()
 {
-    public function taskPrint()
-    {
-        Cli::writeMsg('Answer "yes" if the number is even, otherwise answer "no".');
-    }
+    $rounds = 3;
+    $name = greet();
+    writeMsg('Answer "yes" if the number is even, otherwise answer "no".');
 
-    public function play()
-    {
-        while ($this->rounds > 0) {
-            $number = rand(1, 100);
-            $this->correct_answer = ($number % 2 == 0) ? 'yes' : 'no';
-            $this->answer = Cli::getAnswer("Question: $number");
-            parent::play();
-        }
-        $this->win();
+    while ($rounds > 0) {
+        $number = rand(1, 100);
+        $correct_answer = ($number % 2 == 0) ? 'yes' : 'no';
+        $answer = getAnswer("Question: $number");
+        $rounds += play($correct_answer, $answer, $name);
     }
+    win($name);
 }

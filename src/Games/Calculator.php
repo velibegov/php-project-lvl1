@@ -2,27 +2,24 @@
 
 namespace Php\Project\Lvl1\Games;
 
-use Php\Project\Lvl1\Cli;
+use function Php\Project\Lvl1\getAnswer;
+use function Php\Project\Lvl1\writeMsg;
 
-class Calculator extends Game implements Playable
+function playCalc()
 {
-    public function taskPrint()
-    {
-        Cli::writeMsg('What is the result of the expression?');
-    }
+    $rounds = 3;
+    $name = greet();
+    writeMsg('What is the result of the expression?');
 
-    public function play()
-    {
-        while ($this->rounds > 0) {
-            $first_number = rand(1, 10);
-            $second_number = rand(1, 10);
-            $math_operations = ['+', '-', '*'];
-            $operation_key = array_rand($math_operations, 1);
-            $expression = $first_number . $math_operations[$operation_key] . $second_number;
-            $this->correct_answer = eval('return ' . $expression . ';');
-            $this->answer = Cli::getAnswer("Question: $first_number $math_operations[$operation_key] $second_number");
-            parent::play();
-        }
-        $this->win();
+    while ($rounds > 0) {
+        $first_number = rand(1, 10);
+        $second_number = rand(1, 10);
+        $math_operations = ['+', '-', '*'];
+        $operation_key = array_rand($math_operations, 1);
+        $expression = $first_number . $math_operations[$operation_key] . $second_number;
+        $correct_answer = eval('return ' . $expression . ';');
+        $answer = getAnswer("Question: $first_number $math_operations[$operation_key] $second_number");
+        $rounds += play($correct_answer, $answer, $name);
     }
+    win($name);
 }
