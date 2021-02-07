@@ -31,7 +31,7 @@ function win(string $name): void
     writeMsg("Congratulations, $name!");
 }
 
-function play(string $game)
+function play(string $game): void
 {
     $answers = [];
     $rounds = 3;
