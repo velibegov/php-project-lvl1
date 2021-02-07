@@ -24,17 +24,11 @@ function isPrime(int $number): bool
     return true;
 }
 
-function playPrime(): void
+function playPrime(): array
 {
-    $rounds = 3;
-    $name = greet();
     writeMsg('Answer "yes" if given number is prime. Otherwise answer "no".');
-
-    while ($rounds > 0) {
-        $number = rand(3, 1000);
-        $correct_answer = (isPrime($number)) ? 'yes' : 'no';
-        $answer = getAnswer("Question: $number");
-        $rounds += play($correct_answer, $answer, $name);
-    }
-    win($name);
+    $number = rand(3, 1000);
+    $correctAnswer = (isPrime($number)) ? 'yes' : 'no';
+    $answer = getAnswer("Question: $number");
+    return ['correct' => $correctAnswer, 'answer' => $answer];
 }

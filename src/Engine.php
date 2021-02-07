@@ -21,24 +21,49 @@ function encourage(): void
 function warn(string $wrong, string $correct, string $name): void
 {
     $message = $wrong . ' is wrong answer ;(. Correct answer was ' . $correct . '.';
-    $parting_msg = "Let's try again, " . $name . '!';
+    $partingMsg = "Let's try again, " . $name . '!';
     writeMsg($message);
-    writeMsg($parting_msg);
+    writeMsg($partingMsg);
 }
 
 function win(string $name): void
 {
     writeMsg("Congratulations, $name!");
-    exit(0);
 }
 
-function play(string $correct_answer, string $answer, string $name): int
+function play(string $game)
 {
-    if ($answer != $correct_answer) {
-        warn($answer, $correct_answer, $name);
-        exit(0);
-    } else {
-        encourage();
-        return -1;
+    $answers = [];
+    $rounds = 3;
+    $name = greet();
+
+    while ($rounds > 0) {
+        switch ($game) {
+            case 'calculator':
+                $answers = playCalc();
+                break;
+            case 'gcd':
+                $answers = playGCD();
+                break;
+            case 'parity':
+                $answers = playParity();
+                break;
+            case 'prime':
+                $answers = playPrime();
+                break;
+            case 'progression':
+                $answers = playProgression();
+                break;
+        }
+        if ($answers['correct'] === $answers['answer']) {
+            encourage();
+            $rounds--;
+            if ($rounds === 0) {
+                win($name);
+            }
+        } elseif ($answers['correct'] !== $answers['answer']) {
+            warn($answers['answer'], $answers['correct'], $name);
+            $rounds = 0;
+        }
     }
 }
