@@ -14,8 +14,8 @@ function isPrime(int $number): bool
         return false;
     }
     $i = 3;
-    $max_factor = (int)sqrt($number);
-    while ($i <= $max_factor) {
+    $maxFactor = (int)sqrt($number);
+    while ($i <= $maxFactor) {
         if ($number % $i == 0) {
             return false;
         }

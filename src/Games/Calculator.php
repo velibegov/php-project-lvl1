@@ -23,6 +23,8 @@ function playCalc(): array
         case '*':
             $correctAnswer = $firstNumber * $secondNumber;
             break;
+        default:
+            throw new \Error(writeMsg("Unknown math operation: {$mathOperations[$operationKey]}!"));
     }
     $answer = getAnswer("Question: $firstNumber $mathOperations[$operationKey] $secondNumber");
     return ['correct' => $correctAnswer, 'answer' => (int)$answer];

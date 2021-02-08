@@ -54,6 +54,8 @@ function play(string $game): void
             case 'progression':
                 $answers = playProgression();
                 break;
+            default:
+                throw new \Error(writeMsg("Unknown game: {$game}!"));
         }
         if ($answers['correct'] === $answers['answer']) {
             encourage();
@@ -61,7 +63,7 @@ function play(string $game): void
             if ($rounds === 0) {
                 win($name);
             }
-        } elseif ($answers['correct'] !== $answers['answer']) {
+        } else {
             warn($answers['answer'], $answers['correct'], $name);
             $rounds = 0;
         }
