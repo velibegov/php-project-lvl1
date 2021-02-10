@@ -1,7 +1,7 @@
 <?php
 
-use function Php\Project\Lvl1\getAnswer;
-use function Php\Project\Lvl1\writeMsg;
+use function Php\Project\Lvl1\Games\greet;
+use function Php\Project\Lvl1\Games\play;
 
 function gcd(int $a, int $b): int
 {
@@ -15,12 +15,17 @@ function gcd(int $a, int $b): int
     return $a;
 }
 
-function playGCD(): array
+function playGCD(): void
 {
-    writeMsg('Find the greatest common divisor of given numbers.');
-    $firstNumber = rand(1, 100);
-    $secondNumber = rand(1, 100);
-    $correctAnswer = gcd($firstNumber, $secondNumber);
-    $answer = getAnswer("Question: $firstNumber $secondNumber");
-    return ['correct' => $correctAnswer, 'answer' => (int)$answer];
+    $question = 'Find the greatest common divisor of given numbers.';
+    $name = greet();
+    $rounds = 0;
+
+    while ($rounds < 4) {
+        $firstNumber = rand(1, 100);
+        $secondNumber = rand(1, 100);
+        $correctAnswer = gcd($firstNumber, $secondNumber);
+        $subject = "$firstNumber $secondNumber";
+        $rounds += play($question, $name, $correctAnswer, $subject, $rounds);
+    }
 }

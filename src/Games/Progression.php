@@ -2,35 +2,32 @@
 
 namespace Php\Project\Lvl1\Games;
 
-use function Php\Project\Lvl1\getAnswer;
-use function Php\Project\Lvl1\writeMsg;
-
-function playProgression(): array
+function playProgression(): void
 {
-    writeMsg('What number is missing in the progression?');
+    $question = 'What number is missing in the progression?';
+    $name = greet();
+    $rounds = 0;
 
-    $progressionLength = rand(5, 10);
-    $progressionStep = rand(2, 9);
-    $startValue = rand(1, 100);
-    $arrOfNumbers = [];
-    $stringToShow = '';
-
-    for ($i = 0; $i < $progressionLength; $i++) {
-        array_push($arrOfNumbers, $startValue);
-        $startValue += $progressionStep;
-    }
-
-    $correctKey = array_rand($arrOfNumbers, 1);
-    $correctAnswer = $arrOfNumbers[$correctKey];
-
-    foreach ($arrOfNumbers as $number) {
-        if ($number != $correctAnswer) {
-            $stringToShow .= $number . ' ';
-        } else {
-            $stringToShow .= '..' . ' ';
+    while ($rounds < 4) {
+        $progressionLength = rand(5, 10);
+        $progressionStep = rand(2, 9);
+        $startValue = rand(1, 100);
+        $numbers = [];
+        $stringToShow = '';
+        for ($i = 0; $i < $progressionLength; $i++) {
+            array_push($numbers, $startValue);
+            $startValue += $progressionStep;
         }
+        $correctKey = array_rand($numbers, 1);
+        $correctAnswer = $numbers[$correctKey];
+        foreach ($numbers as $number) {
+            if ($number != $correctAnswer) {
+                $stringToShow .= $number . ' ';
+            } else {
+                $stringToShow .= '..' . ' ';
+            }
+        }
+        $subject = trim($stringToShow);
+        $rounds += play($question, $name, $correctAnswer, $subject, $rounds);
     }
-    $stringToShow = trim($stringToShow);
-    $answer = getAnswer("Question: $stringToShow");
-    return ['correct' => $correctAnswer, 'answer' => (int)$answer];
 }
