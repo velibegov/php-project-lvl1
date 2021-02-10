@@ -13,11 +13,11 @@ function greet(): string
     return $name;
 }
 
-function play(string $question, string $name, string $correctAnswer, string $subject, int $roundsPassed): int
+function play(string $question, string $name, $correctAnswer, $subject, int $roundsPassed): int
 {
     writeMsg($question);
     $answer = getAnswer("Question: $subject");
-    if ($correctAnswer === $answer) {
+    if ($correctAnswer == $answer) {
         writeMsg('Correct!');
         $roundsPassed++;
         if ($roundsPassed > 3) {
