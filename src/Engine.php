@@ -13,7 +13,7 @@ function greet(): string
     return $name;
 }
 
-function play(string $question, string $name, $correctAnswer, $subject, int $roundsPassed): int
+function play(string $question, string $name, mixed $correctAnswer, mixed $subject, int $roundsPassed): int
 {
     writeMsg($question);
     $answer = getAnswer("Question: $subject");
