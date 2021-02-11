@@ -1,6 +1,5 @@
 <?php
 
-use function Php\Project\Lvl1\Games\greet;
 use function Php\Project\Lvl1\Games\play;
 
 function gcd(int $a, int $b): int

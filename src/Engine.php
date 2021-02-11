@@ -10,7 +10,12 @@ function play(string $question, callable $callback): void
     writeMsg('Welcome to the Brain Games!');
     $name = getAnswer('May I have your name?');
     writeMsg("Hello, $name!");
-    $roundsPassed = 0;
+
+    if (!empty($question) && !empty($callback)) {
+        $roundsPassed = 0;
+    } else {
+        $roundsPassed = 4;
+    }
 
     while ($roundsPassed < 4) {
         $params = call_user_func($callback);
