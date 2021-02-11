@@ -2,8 +2,8 @@
 
 use function Php\Project\Lvl1\Games\play;
 
-function playBrainGame()
+function playBrainGame(): void
 {
-    play('', function () {
+    play('', function (): void {
     });
 }

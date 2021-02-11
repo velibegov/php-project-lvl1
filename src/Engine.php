@@ -11,7 +11,7 @@ function play(string $question, callable $callback): void
     $name = getAnswer('May I have your name?');
     writeMsg("Hello, $name!");
 
-    if (!empty($question) && !empty($callback)) {
+    if ($question != '') {
         $roundsPassed = 0;
     } else {
         $roundsPassed = 4;
