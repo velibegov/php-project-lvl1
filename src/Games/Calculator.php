@@ -7,10 +7,8 @@ use function Php\Project\Lvl1\writeMsg;
 function playCalculator(): void
 {
     $question = 'What is the result of the expression?';
-    $name = greet();
-    $rounds = 0;
 
-    while ($rounds < 4) {
+    play($question, function (): array {
         $firstNumber = rand(1, 10);
         $secondNumber = rand(1, 10);
         $mathOperations = ['+', '-', '*'];
@@ -29,6 +27,6 @@ function playCalculator(): void
                 throw new \Error(writeMsg("Unknown math operation: {$mathOperations[$operationKey]}!"));
         }
         $subject = "$firstNumber $mathOperations[$operationKey] $secondNumber";
-        $rounds += play($question, $name, $correctAnswer, $subject, $rounds);
-    }
+        return ['correct' => $correctAnswer, 'subject' => $subject];
+    });
 }

@@ -18,14 +18,11 @@ function gcd(int $a, int $b): int
 function playGCD(): void
 {
     $question = 'Find the greatest common divisor of given numbers.';
-    $name = greet();
-    $rounds = 0;
-
-    while ($rounds < 4) {
+    play($question, function (): array {
         $firstNumber = rand(1, 100);
         $secondNumber = rand(1, 100);
         $correctAnswer = gcd($firstNumber, $secondNumber);
         $subject = "$firstNumber $secondNumber";
-        $rounds += play($question, $name, $correctAnswer, $subject, $rounds);
-    }
+        return ['correct' => $correctAnswer, 'subject' => $subject];
+    });
 }

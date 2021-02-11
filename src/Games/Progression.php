@@ -5,10 +5,8 @@ namespace Php\Project\Lvl1\Games;
 function playProgression(): void
 {
     $question = 'What number is missing in the progression?';
-    $name = greet();
-    $rounds = 0;
 
-    while ($rounds < 4) {
+    play($question, function (): array {
         $progressionLength = rand(5, 10);
         $progressionStep = rand(2, 9);
         $startValue = rand(1, 100);
@@ -28,6 +26,6 @@ function playProgression(): void
             }
         }
         $subject = trim($stringToShow);
-        $rounds += play($question, $name, $correctAnswer, $subject, $rounds);
-    }
+        return ['correct' => $correctAnswer, 'subject' => $subject];
+    });
 }

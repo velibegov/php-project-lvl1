@@ -2,9 +2,6 @@
 
 namespace Php\Project\Lvl1\Games;
 
-use function Php\Project\Lvl1\getAnswer;
-use function Php\Project\Lvl1\writeMsg;
-
 function isPrime(int $number): bool
 {
     if ($number == 2) {
@@ -27,12 +24,9 @@ function isPrime(int $number): bool
 function playPrime(): void
 {
     $question = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-    $name = greet();
-    $rounds = 0;
-
-    while ($rounds < 4) {
+    play($question, function (): array {
         $subject = rand(3, 100);
         $correctAnswer = (isPrime($subject)) ? 'yes' : 'no';
-        $rounds += play($question, $name, $correctAnswer, $subject, $rounds);
-    }
+        return ['correct' => $correctAnswer, 'subject' => $subject];
+    });
 }

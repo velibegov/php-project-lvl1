@@ -5,12 +5,10 @@ namespace Php\Project\Lvl1\Games;
 function playOddEvenGame(): void
 {
     $question = 'Answer "yes" if the number is even, otherwise answer "no".';
-    $name = greet();
-    $rounds = 0;
 
-    while ($rounds < 4) {
+    play($question, function (): array {
         $subject = rand(1, 100);
         $correctAnswer = ($subject % 2 === 0) ? 'yes' : 'no';
-        $rounds += play($question, $name, $correctAnswer, $subject, $rounds);
-    }
+        return ['correct' => $correctAnswer, 'subject' => $subject];
+    });
 }
